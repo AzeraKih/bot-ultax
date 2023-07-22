@@ -1,0 +1,15 @@
+[Unit]
+Description=botDiscultax
+After=network.target
+
+[Service] 
+Restart=always
+User=root
+WorkingDirectory=/root/bot-ultax/
+ExecStart=/usr/bin/python /root/bot-ultax/main_ultax.py
+ 
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Environment="DISCORD_TOKEN=<INSERT_TOKEN_HERE>"
