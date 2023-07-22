@@ -27,16 +27,16 @@ async def on_message(message):
 	link, pre_fix=identify_link(message.content)
 	log(link)
 	if link:
-		await message.channel.send(f'Enviado por: <@{message.author.id}> \n{str(message.content).lower().replace(link, pre_fix+link)}')
+		await message.channel.send(f'Enviado por: <@{message.author.id}> \n{str(message.content).replace(link, pre_fix+link)}')
 		await message.delete()
 
 
 def identify_link(msg):
-    if '/instagram.com/reels' in msg.lower() or 'www.instagram.com/reels' in msg.lower():
+    if '/instagram.com/reel' in msg or 'www.instagram.com/reel' in msg:
         return 'instagram', 'dd'
-    elif '/twitter.com/' in msg.lower() or 'www.twitter.com/' in msg.lower():
+    elif '/twitter.com/' in msg or 'www.twitter.com/' in msg:
         return 'twitter', 'vx'
-    elif '/tiktok.com/' in msg.lower() or 'www.tiktok.com/' in msg.lower():
+    elif '/tiktok.com/' in msg or 'www.tiktok.com/' in msg:
         return 'tiktok', 'vx'
     else:
         return False, False
